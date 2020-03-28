@@ -24,7 +24,7 @@ def async_retry(tries=3, interval=0.3):
                     else:
                         logger.warning('Failed to call func {0}({4}, {5}), retrying in {1} seconds(total: {2}, retry: {3}). Exception: {6}'.format(func.__name__, interval, tries, count, args, kwargs, e))
                         await asyncio.sleep(interval)
-            else:
-                return result
+                else:
+                    return result
         return wrapper
     return decorator
